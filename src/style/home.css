@@ -1,0 +1,195 @@
+#home {
+  font-family: Arial, sans-serif;
+  text-align: center;
+  padding: 20px;
+  color: #fff;
+  position: relative;
+  height: 100vh; /* Ensure the section takes up the full viewport height */
+  
+}
+
+#home video {
+  position: fixed; /* Keeps the video in place when scrolling */
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Ensures the video covers the entire container */
+  z-index: -1; /* Keeps the video in the background */
+}
+
+#saturn-img {
+  width: 300px;
+  position: absolute;
+  top: 0%;
+  right: 5px;
+  opacity: 0.5;
+  transition: transform 0.7s ease, opacity 0.7s ease;
+}
+
+#saturn-img:hover {
+  transform: rotateY(20deg) rotateX(10deg) translateZ(20px) scale(1.08);
+  opacity: 1; /* Optional: Make it fully visible on hover */
+}
+
+#rover-img {
+  position: absolute;
+  z-index: 1;
+  left: 0;
+  opacity: 0.9;
+}
+#rover-img:hover{
+  opacity: 1;
+}
+.main-container {
+  position: relative;
+  z-index: 10; /* Ensures content is above the background */
+}
+
+.container1 {
+  text-align: left;
+}
+
+#wel1 {
+  font-size: 50px;
+  margin: 10px 20px;
+  font-weight: 600;
+  color: white;
+}
+
+#wel2 {
+  font-size: 60px;
+  margin: -10px;
+  margin-left: 40px;
+}
+
+.image-section img {
+  width: 50%;
+  max-width: 450px;
+  border-radius: 10px;
+  margin: 20px 0;
+  filter: grayscale(100%);
+  transition: filter 0.5s ease-in-out;
+  transition: 0.5s;
+}
+
+.image-section img:hover {
+  transform: scale(1.05);
+  filter: grayscale(0%);
+}
+
+.image-section p {
+  margin: 10px 0;
+  text-align: left;
+}
+
+.cta-section {
+  margin-top: 30px;
+}
+
+.cta-section ul {
+  display: flex;
+  padding: 0;
+  justify-content: center;
+}
+
+.cta-section ul li {
+  padding: 8px;
+  position: relative;
+  color: #ccc;
+  transition: color 0.5s;
+  border-radius: 10px;
+  list-style: none;
+  box-shadow: 0 5px 5px -3px rgba(255, 255, 255, 0.3);
+}
+
+.cta-section ul {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  padding: 0;
+}
+
+.cta-section ul li {
+  width: 300px;
+  position: relative;
+  color: #ccc;
+  transition: color 0.5s ease;
+  list-style: none;
+  cursor: pointer;
+  margin: 25px 70px;
+  padding: 5px 10px;
+  white-space: nowrap;
+}
+
+.cta-section ul li::after {
+  content: '';
+  position: absolute;
+  bottom: -5px;
+  left: 0;
+  width: 0;
+  height: 4px;
+  background-color: #00bfff;
+  transition: width 0.5s ease-in-out;
+  border-radius: 25px;
+}
+
+.cta-section ul li:hover {
+  color: #00bfff;
+}
+
+.cta-section ul li:hover::after {
+  width: 100%;
+}
+
+h1, h2, h3 {
+  color: #00aaff;
+}
+
+p {
+  color: #ccc;
+}
+
+@media (max-width: 768px) {
+  #wel1 {
+    font-size: 30px;
+    margin: 10px 20px;
+    font-weight: 600;
+    color: white;
+  }
+  
+  #wel2 {
+    font-size: 40px;
+    margin: -10px;
+    margin-left: 40px;
+    margin-bottom: 50px;
+  }
+  #rover-img {
+    width: 180px;
+    position: absolute;
+    z-index: 1;
+    left: -15px;
+    top: 170px;
+    opacity: 0.9;
+  }
+  
+.image-section img {
+  width: 60%;
+  max-width: 450px;
+  border-radius: 10px;
+  margin: 20px 0;
+  filter: grayscale(100%);
+  transition: filter 0.5s ease-in-out;
+  transition: 0.5s;
+  margin-top: 80px;
+}
+  .cta-section ul {
+    padding: 0;
+  }
+
+  .cta-section ul li {
+    width: 500px;
+    flex-basis: 100%;
+    text-align: center;
+  }
+}

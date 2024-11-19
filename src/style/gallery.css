@@ -1,0 +1,132 @@
+/* Ensure the body and html take up the full height */
+html, body {
+  height: 100%;
+  margin: 0;
+}
+
+/* Set up the gallery container */
+.gallery-container {
+  position: relative;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+  z-index: 2; /* Make sure content is on top of the video */
+  overflow: hidden;
+}
+
+/* Video background */
+.gallery-background {
+  position: absolute; /* Fixed background */
+  top: 0;
+  left: 0;
+  width: 110%;
+  height: 100%;
+  object-fit: cover; /* Ensures the video covers the entire area */
+  z-index: -1; /* Keep video in the background */
+  opacity: 1; /* Optional: adjust for better contrast with the content */
+}
+
+/* Styling for gallery cards */
+.gallery-images {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
+}
+
+.gallery-card {
+  background-color: #ffffffa2;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  max-width: 30%;
+  margin: 10px 0;
+  transition: transform 0.2s;
+}
+
+.gallery-card:hover {
+  transform: translateY(-5px);
+}
+
+.gallery-image {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+  display: block;
+  border-bottom: 2px solid #f1f1f1;
+}
+
+.gallery-card-content {
+  padding: 15px;
+  text-align: left;
+}
+
+.gallery-card-content h3 {
+  font-size: 1.2em;
+  margin-bottom: 10px;
+  color: #333;
+}
+
+.gallery-card-content p {
+  font-size: 0.9em;
+  margin: 5px 0;
+  color: #555;
+}
+#rover-name{
+  background-color: rgba(0, 0, 0, 0.56);
+  color: white;
+  padding: 3px;
+  border-radius: 3px;
+  width: 120px;
+  text-align: center;
+}
+/* Modal Styling */
+.modal {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.7);
+  z-index: 10;
+}
+
+.modal-content {
+  position: relative;
+  max-width: 30%;
+  background-color: white;
+  padding: 20px;
+  overflow: hidden;
+}
+
+
+.modal-image {
+  width: 100%;
+  height: auto;
+}
+
+.close-btn {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  font-size: 2em;
+  color: rgb(0, 0, 0);
+  cursor: pointer;
+  background: none;
+  border: none;
+}
+
+
+@media (max-width: 480px) {
+  .gallery-card {
+    max-width: 85%; /* Make each card take up full width on phones */
+    margin: 10px 0;
+  }
+  .modal-content{
+    max-width: 80%;
+  }
+}

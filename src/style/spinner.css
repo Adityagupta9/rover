@@ -1,0 +1,31 @@
+/* spinner.css */
+.spinner-container {
+    position: relative;
+    height: 100vh; /* Full viewport height */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+  }
+  
+  .background-video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Make sure the video covers the full screen */
+    z-index: -1; /* Keep the video behind the spinner */
+  }
+  
+  .spinner-overlay {
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1; /* Make sure the spinner is on top of the video */
+    background-color: #ffffff00; /* Semi-transparent white background */
+    border-radius: 10px;
+    padding: 20px;
+  }
+  
