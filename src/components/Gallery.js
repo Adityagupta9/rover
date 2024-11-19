@@ -1,8 +1,10 @@
 import React, { useState, useEffect } from 'react';
-import { useParams } from 'react-router-dom';
+import { useParams, useNavigate } from 'react-router-dom';
 import '../style/gallery.css';
 import Spinner from './spinner';
 import backgroundVideo from '../video/gallery-video.mp4';
+import { IoReturnUpBack } from "react-icons/io5";
+import { FaAngleUp } from "react-icons/fa";
 
 const Gallery = () => {
   const { camera } = useParams(); // Get the camera type from the URL
@@ -10,6 +12,8 @@ const Gallery = () => {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
   const [selectedImage, setSelectedImage] = useState(null); // State for selected image
+  const [showScrollButton, setShowScrollButton] = useState(false); // State for "Back to Top" button
+  const navigate = useNavigate(); // Navigation hook
 
   useEffect(() => {
     if (!camera) {
@@ -40,6 +44,21 @@ const Gallery = () => {
       });
   }, [camera]);
 
+  useEffect(() => {
+    const handleScroll = () => {
+      if (window.scrollY > 200) {
+        setShowScrollButton(true);
+      } else {
+        setShowScrollButton(false);
+      }
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+    };
+  }, []);
+
   const handleImageClick = (imgSrc) => {
     setSelectedImage(imgSrc); // Set the clicked image for the modal
   };
@@ -48,11 +67,24 @@ const Gallery = () => {
     setSelectedImage(null); // Close the modal by setting the selected image to null
   };
 
+  const goToHome = () => {
+    navigate("/"); // Redirect to the home page
+  };
+
+  const scrollToTop = () => {
+    window.scrollTo({ top: 0, behavior: 'smooth' }); // Scroll to the top smoothly
+  };
+
   if (loading) return <Spinner />;
   if (error) return <p>{error}</p>;
 
   return (
     <div className="gallery-container">
+      {/* Previous Icon */}
+      <button className="previous-button" onClick={goToHome}>
+        <IoReturnUpBack size={30} />
+      </button>
+
       <h2>Mars Rover Images from {camera}</h2>
 
       {/* Video background */}
@@ -91,6 +123,13 @@ const Gallery = () => {
             <span className="close-btn" onClick={closeModal}>&times;</span>
           </div>
         </div>
+      )}
+
+      {/* Back to Top Button */}
+      {showScrollButton && (
+        <button className="scroll-to-top" onClick={scrollToTop}>
+          <FaAngleUp size={25} />
+        </button>
       )}
     </div>
   );

@@ -130,3 +130,42 @@ html, body {
     max-width: 80%;
   }
 }
+
+.scroll-to-top {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background-color: #333;
+  color: #fff;
+  border: none;
+  border-radius: 50%;
+  padding: 10px;
+  cursor: pointer;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.scroll-to-top:hover {
+  background-color: #555;
+  transform: scale(1.1);
+}
+
+.previous-button {
+  
+  position: fixed;
+  top: 20px;
+  left: 20px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  z-index: 5;
+  color: rgba(255, 255, 255, 0.773);
+  border: none;
+}
+
+.previous-button:hover {
+  transform: scale(1.1);
+}
